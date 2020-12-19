@@ -1,0 +1,32 @@
+<div class="infos">
+<p>Bonjour X, remplissez les informations.</p>
+<br>
+<p>Des recettes vous seront proposées !</p>
+</div>
+<h2>Mes ingrédients</h2>
+<div class="duree">
+  <input type="range" id="duree" name="duree"
+         min="0" max="11">
+  <label for="duree">Durée</label>
+</div>
+<div class="liste">
+<select class="ingredients">
+  <option *ngFor="let ingredient of ingredients"
+    [class.selected]="ingredient === selectedIngredient"
+    (click)="onSelect(ingredient)">
+    {{ingredient.name}}
+  </option>
+</select>
+</div>
+
+<div *ngIf="selectedIngredient">
+
+  <h2>{{selectedIngredient.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedIngredient.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedIngredient.name" placeholder="name"/>
+    </label>
+  </div>
+
+</div>

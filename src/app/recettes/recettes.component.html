@@ -1,0 +1,13 @@
+<h2>Mes recettes</h2>
+<div class="recettes">
+  <p *ngFor="let recette of recettes"
+    [class.selected]="recette === selectedRecette"
+    (click)="onSelect(recette)">
+    {{recette.name}}
+  </p>
+</div>
+
+<div *ngIf="selectedRecette">
+
+
+</div>
